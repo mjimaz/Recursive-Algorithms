@@ -85,8 +85,11 @@ var isPowerOfTwo = function(n){
 // (For example, if the initial investment is 1000 and the interest rate is 10 percent,
 // then after one year the investment will be worth 1100, after two years 1210, after three years 1331, etc.)
 
-var invest = function(amount){
-
+var invest = function(amount, interestRate, years){
+  if(!years){
+  	return amount;
+  }
+  return invest(amount+ amount*interestRate/100, interestRate, --years);
 };
 
 ///////////////////////////////////////////////////////////////////////
