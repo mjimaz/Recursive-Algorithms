@@ -43,6 +43,12 @@ var countVowels = function(str){
 // sumDigits(12) → 3
 
 var recursiveSum = function(n){
+  if(n > 0 && n < 10){
+  	return n;
+  }
+  var digit = n%10;
+
+  return digit + recursiveSum(Math.floor(n/10));
 
 };
 
