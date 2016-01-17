@@ -21,7 +21,15 @@
 // countVowels('abcedfg') ->2
 
 var countVowels = function(str){
-
+  var letter = str.charAt(0);
+  
+  if(letter === ''){
+  	return 0;
+  }
+  if('aeiou'.indexOf(letter) > -1){
+    return 1 + countVowels(str.substring(1));	
+  }
+  return 0 + countVowels(str.substring(1));
 };
 
 ///////////////////////////////////////////////////////////////////////
