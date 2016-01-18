@@ -106,6 +106,32 @@ var invest = function(amount, interestRate, years){
 //    printRangeUpDown(4, 10);
 //    console.logs: 4,5,6,7,8,9,10,9,8,7,6,5,4
 var printRangeUpDown = function(min, max){
+  var start = min;
+  var end = max;
+  var direction = 0;
+  var result =''
+
+  function printRangeUpDownRecursively(n1, n2){
+    if(!direction){
+      if(n1 < n2){
+        result += n1 +",";
+        printRangeUpDownRecursively(++n1, n2);
+      }else if(n1 == n2){
+        direction = 1;
+        printRangeUpDownRecursively(end, start);
+      }      
+    }else{
+      if(n1 > n2){
+      	result += n1 +",";
+      	printRangeUpDownRecursively(--n1, n2);
+      }else if(n1 === n2){
+      	result += n1;
+      }
+    }
+  }
+
+  printRangeUpDownRecursively(start, end);
+  console.log(result);
 
 };
 
